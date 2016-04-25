@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3学习</title>
+	<style>
+		.wrap {
+			width:300px;
+			height:300px;
+			border:1px solid #ccc;
+			border-radius:150px;
+			position:relative;
+			margin: 200px auto;
+			background: #fef1ed;
+		}
+		.eyes {
+			width:50px;
+			height:50px;
+			border:1px solid #ccc;
+			border-radius:50px;
+			background: #000;
+			box-shadow:15px 0px 2px #fff inset;
+			transition:transform 2s linear;
+		}
+
+		.eyes:hover {
+			transform:rotate(360deg);
+		}
+		.left-eye {
+			position:absolute;
+			left:59px;
+			top:82px;
+		}
+		.right-eye {
+			position:absolute;
+			right:59px;
+			top:82px;
+		}
+		.nose {
+			width:50px;
+			height:80px;
+			position:absolute;
+			left:125px;
+			top:135px;
+			overflow: hidden;
+		}
+		.nose-left {
+			width:100px;
+			height:100px;
+			position: absolute;
+			left:-84px;
+			top:-41px;
+			border:1px solid #ccc;
+			border-radius: 100px;
+			box-shadow: 2px 0 10px #f5d8d1; 
+		}
+		.nose-right {
+			width:100px;
+			height:100px;
+			position: absolute;
+			left:30px;
+			top:-41px;
+			border:1px solid #ccc;
+			border-radius: 100px;
+			box-shadow: 2px 0 10px #f5d8d1; 
+		}
+		.nose-kong {
+			width:10px;
+			height:10px;
+			border:1px solid #ccc;
+			border-radius:10px;
+			transform:rotateX(45deg);
+		}
+		.kong-left {
+			position: absolute;
+			left:11px;
+			top:40px;
+		}
+		.kong-right {
+			position: absolute;
+			right:12px;
+			top:40px;
+		}
+		.mouth {
+			width:120px;
+			height:50px;
+			position: absolute;
+			left: 91px;
+			top: 215px;
+			overflow: hidden;
+		}
+		.mouth-s {
+			width:200px;
+			height:200px;
+			position: absolute;
+			left: -41px;
+			top: 0px;
+			border:1px solid #ccc;
+			border-radius:200px;
+		}
+		.toufa {
+			width:15px;
+			height:50px;
+			position: absolute;
+			right: 150px;
+			top: 0px;
+			border-left:1px solid #ccc;
+			border-right:1px solid #ccc;
+		}
+		.toufa2 {
+			right:134px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="eyes left-eye"></div>
+		<div class="eyes right-eye"></div>
+		<div class="nose">
+			<div class="nose-left"></div>
+			<div class="nose-right"></div>
+			<div class="nose-kong kong-left"></div>
+			<div class="nose-kong kong-right"></div>
+		</div>
+		<div class="mouth">
+			<div class="mouth-s"></div>
+		</div>
+		<div class="toufa"></div>
+		<div class="toufa toufa2"></div>
+	</div>
+	<script>
+	// var eyes = document.getElementsByClassName('eyes');
+	// 	mouth = document.getElementsByClassName('mouth')[0];
+	// 	function zaYan(){
+	// 		setInterval(function(){
+	// 			if(eyes[0].clientHeight==50){
+	// 				for(var i=0;i<eyes.length;i++){
+	// 					eyes[i].style.height='0px';
+	// 				mouth.style.height = "10px";
+	// 				}
+	// 				setTimeout(function(){
+	// 					for(var i=0;i<eyes.length;i++){
+	// 						eyes[i].style.height='50px';
+	// 					}
+	// 					mouth.style.height = "50px";
+	// 				},200)
+	// 			}
+	// 		},2000);
+	// 	}
+	// 	zaYan();
+	</script>	
+</body>
+</html>

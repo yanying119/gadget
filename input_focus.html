@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IE9以下兼容html5标签的方法</title>
+
+	<!--[if lt IE 9]>
+	<script>
+	(function(){
+	    var tags = ['header','footer','figure','figcaption','details','summary','hgroup','nav','aside','article','section','mark','abbr','meter','output','progress','time','video','audio','canvas','dialog'];
+	    for(var i=tags.length - 1;i>-1;i--){ document.createElement(tags[i]);}
+	})();
+	</script>
+	<![endif]-->
+	<style>
+		header,footer,figure,figcaption,article,section {
+			display:block;
+		}
+		.row {
+			float:left;
+		}
+		input:focus{
+			text-indent:10px;
+			color:#000; 
+			float:left;
+		}	
+		input {
+			text-indent:20px;
+			float:right;
+		}
+		label {
+			float:left;
+		}
+		input:focus + label{
+			float:right;
+		}	
+	</style>
+</head>
+<body>
+	<div class="row">
+		<input type="text" id="focus" value="请输入用户名">
+		<label for="focus">姓名</label>
+	</div>
+	
+</body>
+</html>

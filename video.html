@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {margin:0;padding:0;}
+	.progressBar {
+		height:10px;
+		width:300px;
+		border:1px solid #ccc;
+		position: relative;
+	}
+	#progressBarLeft {
+		width:0;
+		height:10px;
+		background: #0180C7;
+		position: absolute;left: 0;top:0;right:0;
+		margin:0;
+	}
+	#progressBarBtn {
+		height:10px;
+		width:8px;
+		background: #666;
+		position: absolute;left: 0;top:0;
+		margin:0;
+	}
+	</style>
+</head>
+<body>
+<video id="myVideo" src="./38.mp4" width="380" controls="controls" height="300" ended="ended"></video>
+<button id="play" onclick="plays()">播放/暂停</button>
+<button id="play" onclick="muted(this)">静音</button>
+<button id="play" onclick="advance(this)">快进</button>
+<div style="margin-left:100px"><div class="progressBar" id="progressBar">
+	<p id="progressBarLeft"></p>
+	<p id="progressBarBtn"></p>
+</div>
+</div>
+</body>
+<script>
+	var myVideo = document.getElementById('myVideo');
+
+
+		function plays(){
+			if(myVideo.paused){
+				myVideo.play();
+			}else{
+				myVideo.pause();
+			}
+		}
+
+
+		function muted(o){
+			if (myVideo.paused){
+				return ; 
+			}else {
+				if(myVideo.muted){
+					myVideo.muted="";
+					o.innerHTML='静音';
+				}else{
+					myVideo.muted="muted";
+					o.innerHTML='X静音';
+				}
+			}
+		}
+
+
+		function advance(o){
+			o.onclick = function(){
+				if (myVideo.currentTime<=myVideo.duration){
+					myVideo.currentTime=myVideo.currentTime+5;
+				}
+			}
+		}
+
+
+		function audioSize(){
+			//myVideo.volume
+		}
+
+
+		function progressBar(){
+			var progressBarLeft = document.getElementById("progressBarLeft"),
+				progressBar = document.getElementById("progressBar"),
+				progressBarBtn  = document.getElementById("progressBarBtn");
+				
+			progressBar.onclick = function(event){
+
+				progressBarBtn.style.left = (event.clientX-this.offsetLeft-progressBarBtn.clientWidth)+"px";
+
+				progressBarLeft.style.width=(event.clientX-this.offsetLeft-progressBarBtn.clientWidth)+"px";
+
+				var percent = (event.clientX-this.offsetLeft)/this.clientWidth;
+
+				if((event.clientX-this.offsetLeft)<=progressBarBtn.clientWidth){
+					progressBarBtn.style.left=0+"px";
+					percent=0;
+				}
+
+				myVideo.volume = percent
+			}
+		}
+
+
+		progressBar();
+	</script>
+</html>

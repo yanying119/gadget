@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滚轮事件</title>
+	<script>
+	function mouseWheel(obj,up,down){
+		if(document.attachEvent){
+			obj.attachEvent("onmousewheel",function(e){
+				console.log(e.wheelDelta);
+				if (e.wheelDelta>0){
+					up();
+				}else{
+					down();
+				}
+				
+			})
+		}else if(document.addEventListener){
+			obj.addEventListener("DOMMouseScroll",function(event){
+				if (event.detail>0){
+					down();
+				}else{
+					up();
+				}
+			},false)
+			obj.onmousewheel = function(event){
+				if (event.wheelDelta>0){
+					up();
+				}else{
+					down();
+				}
+			};
+		};
+	};
+	function up(){
+		 var url = window.location.href;
+		 var urlBase = url.split("#")[0];
+		 var n = url.split("#")[1];
+
+		 if(n&&n>1){
+		 	var n = parseInt(n);
+		 	url = urlBase +"#"+(n-1);
+		 }else if(n&&n<=1) {
+		 	url = urlBase +"#"+(1);
+		 }
+
+		 window.location.href = url;
+	}
+	function down(){
+		var url = window.location.href;
+		 var urlBase = url.split("#")[0];
+		 var n = url.split("#")[1];
+		 if(n&&n<4){
+		 	var n = parseInt(n);
+		 	url = urlBase +"#"+(n+1);
+		 }else if(n&&n>=4) {
+		 	url = urlBase +"#"+(4);
+		 }else {
+		 	url = urlBase +"#"+(2);
+		 }
+		 window.location.href = url;
+	}
+
+
+	window.onload = function(){
+		var box = document.getElementById("box");
+		mouseWheel(document,up,down);
+	}
+	</script>
+	<style>
+		html,body,.box,.pox,.aox,.cox {
+			width:100%;
+			height:100%;
+			padding:0;
+			margin:0;
+			overflow-y: hidden;
+		}
+		.box a,.pox a,.aox a,.cox a{
+			display: block;
+			width:100%;
+			height: 10px;
+
+		}
+		.box {
+			background:#f00;
+		}
+		.pox {
+			background:#ccc;
+		}
+		.cox {
+			background:#999;
+		}
+		.aox {
+			background:#dcdcdc;
+		}
+		.nav {
+			position:fixed;
+			left:0;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li><a href="#1">1</a></li>
+		<li><a href="#2">2</a></li>
+		<li><a href="#3">3</a></li>
+		<li><a href="#4">4</a></li>
+	</ul>
+	<div class="box"><a name="1"></a></div>
+	<div class="pox"><a name="2"></a></div>
+	<div class="cox"><a name="3"></a></div>
+	<div class="aox"><a name="4"></a></div>
+</body>
+</html>

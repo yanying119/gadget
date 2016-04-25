@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery自定义插件应用</title>
+	<script src="./jquery.min.js"></script>
+	<script src="./plug-in.js"></script>
+	<script>
+		$(function(){
+			$(".box").eq(0).myFun({
+				names:'改名了',
+				heights:180,
+				ages:101,
+				setFunction:function(obj){
+					console.log(obj)
+					obj.css("height","50px");
+				}
+			});
+			$(".pox").myFun({
+				ages:105,
+				setFunction:function(obj){
+					obj.css("background","#f00");
+				}
+			});
+		})
+	</script>
+</head>
+<body>
+	<ul class="nav">
+		<li><a href="#1">1</a></li>
+		<li><a href="#2">2</a></li>
+		<li><a href="#3">3</a></li>
+		<li><a href="#4">4</a></li>
+	</ul>
+	<div class="box" id="box">第一屏</div>
+	<div class="box" >第一屏</div>
+	<div class="box" >第一屏</div>
+	<div class="pox">第二屏</div>
+	<div class="cox">第三屏</div>
+	<div class="aox">第四屏</div>
+</body>
+</html>

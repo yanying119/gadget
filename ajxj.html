@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box {
+			width:100px;
+			height:100px;
+			background:#f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" onclick="getText()"></div>
+	<script>
+	function getText(){
+		var ajxj = new XMLHttpRequest();
+			ajxj.open("get","text.txt",true);
+			ajxj.send();
+			console.log(ajxj.status);
+			alert(ajxj.responseText);
+	}
+	</script>
+</body>
+</html>

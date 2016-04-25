@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3过渡属性</title>
+	<link rel="stylesheet" href="./jquery-ui.css">
+	<script src="./jquery.min.js"></script>
+	<script src="./jquery-ui.js"></script>
+	<script>
+	$(function(){
+		var imgList  =  $(".pic_box").children("li");
+		var n = 0;
+		var autoGo = setInterval(function(){
+			var index = getTip();
+			console.log(index)
+			if(index==1){
+				var effect = "fold",
+				options=null
+			}else if(index==2){
+				var effect = "explode",
+				options=null
+			}else if(index==3){
+				var effect = "scale",
+				options= {percent:200};
+			}else if(index==4){
+				var effect = "shake",
+				options={direction:"up",distance:10,times:5}
+			}
+			
+			if(n>=5){n=0}
+			imgList.eq(n+1).css("zIndex",9);
+			imgList.eq(n).css("zIndex",10).effect(effect,options,2000,function(){
+				this.style="";
+			})
+			n++;
+		},2000)
+	});
+	function getTip(){
+		return parseInt(Math.random()*4)+1
+	}
+	</script>
+	<style>
+		.box {
+			width:500px;
+			height:200px;
+			position:relative;
+			margin:100px auto;
+			padding:0;
+			z-index: 10;
+		}	
+		.box .pic_box,.box .pic_box li,.box .pic_box img {
+			width:100%;
+			height:100%;
+			margin:0;
+			padding:0;
+			position:relative;
+		}
+		.box .pic_box {
+			overflow: hidden;
+		}
+		li {
+			list-style:none;
+		}
+		.box .pic_box li {
+			position:absolute;
+			left:0;
+			top:0;
+			line-height: 200px;
+			text-align: center;
+		}
+		.ui-effects-wrapper,.ui-effects-explode {
+			z-index: 100;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="pic_box">
+			<li><img src="./images1.jpg" alt=""></li>
+			<li><img src="./images2.jpg" alt=""></li>
+			<li><img src="./images3.jpg" alt=""></li>
+			<li><img src="./images4.jpg" alt=""></li>
+			<li><img src="./images5.jpg" alt=""></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box {
+		width:50px;
+		height:50px;
+		padding:25px;
+		border:1px solid #ccc;
+	}
+	#pox {
+		width:50px;
+		height:50px;
+		background:#f00;
+	}
+	</style>
+</head>
+<body>
+	<div class="box" >垃圾桶</div>
+	<div class="box" ></div>
+	<div class="box" ></div>
+	<div class="box" ></div>
+	<div class="box" ></div>
+	<div class="box" ></div>
+	<div id="pox" draggable="true"></div>
+	<script>
+	function drag(){
+		var box = document.getElementsByClassName("box"),
+			pox = document.getElementById("pox");
+
+			pox.ondragstart = function(event){
+				event.dataTransfer.setData("Text",this.id);
+			};
+			for(var i = 0;i < box.length;i++){
+				box[i].ondragover = function(event){
+					event.preventDefault();
+				}
+				box[i].ondrop = function(event){
+					event.preventDefault();
+					var text = event.dataTransfer.getData("Text");
+					this.style.background = "";
+					this.appendChild(document.getElementById(text));
+				}
+			}
+	}
+
+	var cc =new drag();
+	</script>
+</body>
+</html>

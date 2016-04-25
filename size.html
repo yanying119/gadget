@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box {
+			width:100px;
+			height:100px;
+			margin:10px;
+			padding:5px;
+			border:2px solid #ccc;
+		}
+		body {
+			margin:0;
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+	<div style="width:200px;height:200px;padding-top:10px;"><div id="box"></div></div>
+	<script>
+	var box = document.getElementById("box");
+
+	console.log("offsetLeft是border的外边线相对于浏览器左边或者定位父级的尺寸，box的offsetLeft是："+box.offsetLeft+"px")
+	console.log("offsetTop是Top+padding+border尺寸，box的offsetTop是："+box.offsetTop+"px")
+	console.log("clientLeft是margin的内边线到padding外边线的尺寸，box的clientLeft是："+box.clientLeft+"px")
+	console.log("clientTop是margin的内边线到padding外边线的尺寸，box的clientTop是："+box.clientTop+"px")
+	console.log("clientHeight是height+padding尺寸，box的clientHeight是："+box.clientHeight+"px")
+	console.log("clientWidth是Width+padding尺寸，box的clientWidth是："+box.clientWidth+"px")
+	console.log("offsetWidth是Width+padding+border尺寸，box的offsetWidth是："+box.offsetWidth+"px")
+	console.log("offsetHeight是Height+padding+border尺寸，box的offsetHeight是："+box.offsetHeight+"px")
+	</script>
+</body>
+</html>

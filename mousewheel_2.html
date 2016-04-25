@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滚轮事件</title>
+	<script>
+	function mouseWheel(obj,up,down){
+		if(document.attachEvent){
+			obj.attachEvent("onmousewheel",function(e){
+				console.log(e.wheelDelta);
+				if (e.wheelDelta>0){
+					up();
+				}else{
+					down();
+				}
+				
+			})
+		}else if(document.addEventListener){
+			obj.addEventListener("DOMMouseScroll",function(event){
+				if (event.detail>0){
+					down();
+				}else{
+					up();
+				}
+			},false)
+			obj.onmousewheel = function(event){
+				if (event.wheelDelta>0){
+					up();
+				}else{
+					down();
+				}
+			};
+		};
+	};
+	var n = 0;
+	function up(){
+		var base = 150.631;
+		n--;
+		if (n<=0){
+			n=0
+		}
+		var c = base*n;
+		console.log(c)
+		if(c>900&&c<1000){
+			box.className = "box ping2"
+		}else {
+			box.className = "box";
+		}
+		box.style.marginTop = - c+"px";
+
+		document.getElementById('box').style.marginTop = - c+"px";
+	}
+	function down(){
+		var base = 150;
+			box = document.getElementById('box');
+		n++;
+		if (n>=19){
+			n=19
+		}
+		var c = base*n;
+		console.log(c)
+		if(c>800&&c<1100){
+			box.className = "box ping2"
+		}else {
+			box.className = "box";
+		}
+		box.style.marginTop = - c+"px";
+	}
+
+	window.onload = function(){
+		var box = document.getElementById("box");
+		mouseWheel(document,up,down);
+	}
+	</script>
+	<style>
+		html,body,.box,.pox,.aox,.cox {
+			width:100%;
+			height:100%;
+			padding:0;
+			margin:0;
+			overflow-y: hidden;
+			text-align: center;
+			transition:margin 0.5s;
+		}	
+		.box {
+			background:#f00;
+		}
+		.pox {
+			background:#ccc;
+		}
+		.cox {
+			background:#999;
+		}
+		.aox {
+			background:#dcdcdc;
+		}
+		.nav {
+			position:fixed;
+			left:0;
+			top:0;
+		}
+		.ping2 {
+			margin-top: -954px !important;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li><a href="#1">1</a></li>
+		<li><a href="#2">2</a></li>
+		<li><a href="#3">3</a></li>
+		<li><a href="#4">4</a></li>
+	</ul>
+	<div class="box" id="box">第一屏</div>
+	<div class="pox">第二屏</div>
+	<div class="cox">第三屏</div>
+	<div class="aox">第四屏</div>
+</body>
+</html>

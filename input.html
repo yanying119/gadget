@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input >> html5 >> 新属性测试</title>
+</head>
+<body>
+<form action="" id="forms">
+	<input type="email" autofocus="autofocus" autocomplete="on">
+	<input type="url" autofocus="autofocus" autocomplete="on">
+	<input type="submit">
+	<input type="color" name="color">
+	<input type="date" name="dates"><keygen name="ket">
+	<div id="box" style="width:100px;height:100px">
+		
+	</div>
+</form>
+	<script>
+	var forms = document.getElementById('forms'),
+		box = document.getElementById("box");
+
+forms.color.onchange = function(){
+	var colors = forms.color.value;
+	box.style.color = colors;
+}
+forms.dates.onchange = function(){
+	var colors = forms.dates.value;
+	box.innerHTML = colors;
+}
+	</script>
+</body>
+</html>
