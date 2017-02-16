@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.counter {
+    width: 220px;
+    height: 300px;
+    margin: 200px auto;
+    overflow: hidden;
+    border: 3px solid #b6bebf;
+    border-radius: 5px;
+    padding: 10px;
+    background: #dbe2e2;
+}
+
+.countView {
+    height: 55px;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 10px;
+}
+
+.countBtn {
+    margin-top: 13px;
+}
+
+.countBtn li {
+    width: 40px;
+    height: 30px;
+    float: left;
+    padding: 2px;
+}
+
+.countBtn button {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+}
+
+.equal {
+    position: relative;
+}
+
+.equal button {
+    position: absolute;
+    height: 64px;
+    left: 2px;
+    top: 2px;
+}
