@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas流星雨</title>
+	<link rel="stylesheet" href="./css/css.css">
+	<script src="./js/canvas.js"></script>
+	<script>
+		
+
+		window.onload = function(){
+
+			var star = new Star({
+				starCount:100,
+				meteorCount:20,
+				speed:6
+			});
+			star.init();
+			//meteor()
+		}
+	</script>
+</head>
+<body>
+	<section class="box">
+		<canvas id="canvas">您的浏览器不支持canvas标签！！！</canvas>
+	</section>
+</body>
+</html>
